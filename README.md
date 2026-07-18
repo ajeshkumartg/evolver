@@ -23,7 +23,7 @@ Since Google would probably spontaneously combust if we put this on the Chrome W
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Toggle **Developer mode** on in the top right corner.
 4. Click **Load unpacked** in the top left.
-5. Select the `ai-solver-extension` folder.
+5. Select the `evolver` folder.
 6. Boom. The Evolver icon is now in your toolbar.
 
 ## 🔌 Connecting to Ollama
