@@ -3,7 +3,7 @@
 # TOTALLY VIBECODED
 # 🧠 Evolver v3.1: The AI Evolve Soltuion
 
-> *"Because human memory is a flawed storage medium."*
+> *"Because your time is better spent doing literally anything else."*
 
 Welcome to **Evolver**, a Chrome extension designed to completely automate the EVOLVE E-LEARNING. It reads the questions, consults the AI of your choice (including local, privacy-respecting LLMs via Ollama), clicks the right radio buttons or checkboxes, and politely clicks "Next" until the exam is finished. 
 
