@@ -60,5 +60,3 @@ Add `Environment="OLLAMA_ORIGINS=*"` to your `ollama.service` file and restart t
 This tool was built for educational purposes, testing authorized practice environments, and demonstrating DOM-parsing combined with LLM API routing. 
 
 **I am not responsible if you use this on a proctored university exam, get caught by advanced telemetry, and are subsequently expelled into the sun.** Use responsibly, understand the code you are running, and remember that AI hallucinates. If Qwen decides the answer to a math question is "Banana", Evolver *will* try to click it. 
-
-```
