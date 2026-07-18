@@ -9,8 +9,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 async function handleApiCall(question, options, isMultiple) {
   return new Promise((resolve) => {
-    chrome.storage.local.get(['provider', 'apiKey'], async (settings) => {
-      const { provider, apiKey } = settings;
+    // NEW: Fetch localModel from storage as well
+    chrome.storage.local.get(['provider', 'apiKey', 'localModel'], async (settings) => {
+      const { provider, apiKey, localModel } = settings;
       
       if (!provider) {
         console.error("No AI provider selected.");
@@ -67,15 +68,15 @@ CRITICAL RULE: You must reply ONLY with the exact ID string (e.g., chk_1_0) of t
         else if (provider === "mistral" || provider === "grok" || provider === "local") {
           let endpoint = provider === "mistral" ? "https://api.mistral.ai/v1/chat/completions" : 
                          provider === "grok" ? "https://api.x.ai/v1/chat/completions" : 
-                         "http://localhost:11434/v1/chat/completions"; // Updated to Ollama's port
+                         "http://localhost:11434/v1/chat/completions";
                          
+          // NEW: Use the user's input, or default to a standard model if left blank
           let model = provider === "mistral" ? "mistral-small-latest" : 
                       provider === "grok" ? "grok-beta" : 
-                      "aratan/qwen3.5-9b-abliterated-flash:latest"; // Updated to your specific Qwen model
+                      (localModel || "llama3.1"); 
 
           const headers = { 'Content-Type': 'application/json' };
           
-          // Only append the Authorization header if we are not using the local model
           if (provider !== "local") {
             headers['Authorization'] = `Bearer ${apiKey}`;
           }
@@ -93,7 +94,6 @@ CRITICAL RULE: You must reply ONLY with the exact ID string (e.g., chk_1_0) of t
           aiResponseText = data.choices[0].message.content;
         }
 
-        // Process the response based on whether it's an array or a single string
         let answerIds = [];
         if (isMultiple) {
           let parts = aiResponseText.split(',');
