@@ -17,14 +17,15 @@ Sit back, sip your coffee, and watch the DOM manipulate itself.
 
 ## 🛠️ Installation
 
-Since Google would probably spontaneously combust if we put this on the Chrome Web Store, you'll need to load it manually:
+Because this tool pushes the boundaries of typical web store policies, you'll need to load it locally as a developer:
 
 1. Clone or download this repository to your local machine.
 2. Open Chrome and navigate to `chrome://extensions/`.
-3. Toggle **Developer mode** on in the top right corner.
-4. Click **Load unpacked** in the top left.
-5. Select the `evolver` folder.
-6. Boom. The Evolver icon is now in your toolbar.
+3. Toggle **Developer mode** on (top-right corner).
+4. Click **Load unpacked** (top-left corner).
+5. Select the root folder containing the extension files (evolver).
+
+---
 
 ## 🔌 Connecting to Ollama
 
@@ -43,10 +44,10 @@ Add `Environment="OLLAMA_ORIGINS=*"` to your `ollama.service` file and restart t
 
 ## 🚀 Usage
 
-1. Open your exam page.
+1. Open your Exam page.
 2. Click the **Evolver** extension icon.
-3. Select your AI Provider.
-    * *Using Ollama?* Select "Local LLM", leave the API key blank, and ensure Ollama is running in the background.
+3. Configure your settings:
+    * For Local LLMs: Select Local LLM (Ollama/LMStudio), leave the API Key field blank, and type your exact local model name (e.g., aratan/qwen3.5-9b-abliterated-flash:latest) into the model field.
     * *Using Cloud?* Paste your API key.
 4. Click **Save Settings**.
 5. Click **Solve Current Page**.
